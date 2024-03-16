@@ -27,8 +27,6 @@ jobs:
       - name: Checkout Golang Code
         uses: actions/checkout@v4
 
-      - name: Run go code
-        run: go run main.go
 
       # Set up Docker environment
       - name: Set up Docker Buildx
@@ -48,6 +46,9 @@ jobs:
             -p 5433:5433 \
             --name my_postgres_container \
             postgres:latest
+
+      - name: Run go code
+        run: go run main.go
 
       - name: Test Code
         run: go test accounts
