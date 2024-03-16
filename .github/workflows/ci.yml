@@ -27,6 +27,9 @@ jobs:
       - name: Checkout Golang Code
         uses: actions/checkout@v4
 
+      - name: Run go code
+        run: go run main.go
+
       # Set up Docker environment
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
