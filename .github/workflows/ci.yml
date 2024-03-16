@@ -47,4 +47,4 @@ jobs:
             postgres:latest
 
       - name: Test Code
-        run: go test
+        run: go test accounts
