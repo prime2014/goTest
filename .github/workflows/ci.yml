@@ -1,0 +1,16 @@
+name: Testing and Linting Golang Code
+run-name: Golang Tests
+on:
+  - "push"
+
+jobs:
+  Build_Golang_Code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Golang Code
+        uses: actions/checkout@v4
+
+      - name: Setup Golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.21.7

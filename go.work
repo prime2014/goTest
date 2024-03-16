@@ -1,0 +1,10 @@
+go 1.21.7
+
+use (
+	.
+	./accounts
+	./amqp
+	./db
+	./feed
+	./mail
+)
