@@ -56,6 +56,9 @@ jobs:
         run: |
           psql -h ${{ secrets.POSTGRES_HOST }} -p ${{ secrets.POSTGRES_PORT }} -U ${{ secrets.POSTGRES_USER }} -d ${{ secrets.POSTGRES_DB_NAME }} -c "SELECT version();"
 
+      - name: Confirm
+        run: "Successfult initialized database"
+
       - name: Test Code
         run: go test accounts
 
