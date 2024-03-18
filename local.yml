@@ -16,3 +16,8 @@ services:
       - collab_db:/var/lib/postgresql/data
     networks:
       - db_secure
+
+
+networks:
+  db_secure:
+    driver: bridge
