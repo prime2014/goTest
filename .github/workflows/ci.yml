@@ -50,4 +50,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Test Code
+        run: |
+          echo "Printing PostgreSQL environment variables..."
+          echo "POSTGRES_USER: ${{ secrets.POSTGRES_USER }}"
+          echo "POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}"
+          echo "POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}"
+          # Add more debugging commands as needed
+
+      - name: Test Code
         run: go test accounts
+
+
