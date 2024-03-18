@@ -36,18 +36,13 @@ jobs:
 
   Test-Go-Code:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB_NAME }}
+
     steps:
       - name: Checkout Golang Code
         uses: actions/checkout@v4
+
+      - name: start docker postgres service
+        run: docker-compose -f local.yml up -d
 
       - name: Test Code
         run: go test accounts

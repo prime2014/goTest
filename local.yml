@@ -1,0 +1,16 @@
+version: "3"
+
+
+services:
+  postgres:
+    restart: on-failure
+    image: postgres:12
+    container_name: collab_local_postgres
+    environment:
+      POSTGRES_USER: prime
+      POSTGRES_PASSWORD: belindat2014
+      POSTGRES_DB: test_luxury
+    volumes:
+      - collab_db:/var/lib/postgresql/data
+    networks:
+      - db_secure
