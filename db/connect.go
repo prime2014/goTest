@@ -16,7 +16,7 @@ const (
 )
 
 const (
-	TEST_HOST     = "postgres"
+	TEST_HOST     = "localhost"
 	TEST_USER     = "prime"
 	TEST_PASSWORD = "belindat2014"
 	TEST_DBNAME   = "test_luxury"
