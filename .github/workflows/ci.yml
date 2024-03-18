@@ -48,13 +48,13 @@ jobs:
 
       - name: Connect to PostgreSQL and run query
         env:
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
-          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB_NAME }}
+          POSTGRES_USER: prime
+          POSTGRES_PASSWORD: belindat2014
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_DB: test_luxury
         run: |
-          psql -h ${{ secrets.POSTGRES_HOST }} -p ${{ secrets.POSTGRES_PORT }} -U ${{ secrets.POSTGRES_USER }} -d ${{ secrets.POSTGRES_DB_NAME }} -c "SELECT version();"
+          psql -h localhost -p 5432 -U prime -d test_luxury -c "SELECT version();"
 
       - name: Confirm
         run: "Successfult initialized database"
