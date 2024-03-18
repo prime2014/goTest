@@ -63,7 +63,7 @@ jobs:
           POSTGRES_PORT: 5432
           POSTGRES_DB: test_luxury
         run: |
-          psql -h localhost -p 5432 -U prime -d test_luxury -W belindat2014 -c "SELECT version();"
+          psql -h localhost -p 5432 -U postgres -d test_luxury -w -c "SELECT version();"
 
       - name: Confirm
         run: "Successfult initialized database"
