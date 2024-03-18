@@ -49,9 +49,6 @@ jobs:
       - name: Checkout Golang Code
         uses: actions/checkout@v4
 
-      - name: Confirm
-        run: "Successfult initialized database"
-
       - name: Test Code
         run: go test accounts
 
