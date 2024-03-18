@@ -14,10 +14,8 @@ services:
       POSTGRES_DB: test_luxury
     volumes:
       - collab_db:/var/lib/postgresql/data
-    networks:
-      - db_secure
+    network-mode: host
 
 
-networks:
-  db_secure:
-    driver: bridge
+
+
