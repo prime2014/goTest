@@ -40,6 +40,9 @@ jobs:
       - name: Checkout Golang Code
         uses: actions/checkout@v4
 
+      - name: Install postgres
+        run: sudo apt install postgresql
+
       - name: Install PostgreSQL client
         run: sudo apt-get install -y postgresql-client
 
