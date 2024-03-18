@@ -14,7 +14,7 @@ services:
       POSTGRES_DB: test_luxury
     volumes:
       - collab_db:/var/lib/postgresql/data
-    network-mode: host
+    network_mode: host
 
 
 
