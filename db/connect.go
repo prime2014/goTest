@@ -32,7 +32,10 @@ func Connect() {
 	}), &gorm.Config{})
 
 	if err != nil {
-		panic("Failed to connect to database")
+		db, err = gorm.Open(postgres.New(postgres.Config{
+			DSN:                  fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s", TEST_HOST, TEST_USER, TEST_PASSWORD, TEST_DBNAME, TEST_PORT),
+			PreferSimpleProtocol: true,
+		}), &gorm.Config{})
 	}
 	Db = db
 }
