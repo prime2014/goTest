@@ -1,5 +1,7 @@
 version: "3"
 
+volumes:
+  collab_db: {}
 
 services:
   postgres:
