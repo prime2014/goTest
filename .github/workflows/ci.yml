@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install postgres
-        run: sudo apt install postgresql
+        run: sudo apt-get install postgresql
 
       - name: Install PostgreSQL client
         run: sudo apt-get install -y postgresql-client
