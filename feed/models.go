@@ -22,5 +22,5 @@ type Media struct {
 	FilePath string    `json:"filepath"`
 	Width    float64   `json:"width"`
 	Height   float64   `json:"height"`
-	PubDate  time.Time `json:"pubdate"`
+	PubDate  time.Time `json:"pubdate" gorm:"default:current_timestamp"`
 }

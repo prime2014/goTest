@@ -1,33 +1,47 @@
 package accounts
 
 import (
-	"context"
-	"encoding/json"
+	"db"
 	"testing"
-
-	"github.com/carlmjohnson/requests"
 )
 
 func TestSignup(t *testing.T) {
+	db.ConnectTestDB()
 
-	credentials := map[string]string{
-		"firstname": "Samra",
-		"lastname":  "Dita",
-		"email":     "samra.dita@gmail.com",
-		"password":  "belindat2014",
+	db.Db.AutoMigrate(&Users{})
+
+	var user = Users{
+		FirstName: "Sasha",
+		LastName:  "Banks",
+		Email:     "sasha.banks@mail.com",
+		Password:  "belindat2014",
 	}
 
-	bodyValue, _ := json.Marshal(credentials)
-
-	t.Log(string(bodyValue))
-
-	err := requests.
-		URL("http://127.0.0.1:8080/api/v1/users/signup").
-		BodyBytes([]byte(bodyValue)).
-		Fetch(context.Background())
+	_, err := user.Save(db.Db)
 
 	if err != nil {
-		t.Error(err.Error())
+		t.Errorf(err.Error())
 	}
 
+}
+
+func TestLoginUser(t *testing.T) {
+	var user = AuthenticationStruct{
+		Email:    "sasha.banks@mail.com",
+		Password: "belindat2014",
+	}
+
+	_, err := user.Login(db.Db)
+
+	if err != nil {
+		t.Errorf(err.Error())
+	}
+
+	TearDown()
+}
+
+func TearDown() {
+	pg, _ := db.Db.DB()
+	pg.Exec("DROP TABLE users")
+	pg.Close()
 }

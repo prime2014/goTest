@@ -16,11 +16,11 @@ const (
 )
 
 const (
-	TEST_HOST     = "localhost"
+	TEST_HOST     = "postgres"
 	TEST_USER     = "prime"
 	TEST_PASSWORD = "belindat2014"
-	TEST_DBNAME   = "luxury"
-	TEST_PORT     = "5433"
+	TEST_DBNAME   = "test_luxury"
+	TEST_PORT     = "5432"
 )
 
 var Db *gorm.DB
